@@ -1,0 +1,27 @@
+<table width=100%>
+  <tr>
+    <td width=50%>
+      <h1 [class.red]="h1Style">Home</h1>
+
+      <h2 [ngClass]="{
+        'red': h1Style,
+        'large': !h1Style
+      }">Home2</h2>
+
+      <h3 [ngStyle]="{
+        'color': h1Style ? 'red' : 'black',
+        'font-size': !h1Style ? '1em' : '4em'
+      }">Home3</h3>
+
+      <button (click)="firstClick()">Click me</button>
+    </td>
+    <td width=50%>
+      <ul *ngIf="users">
+        <li *ngFor="let user of users.data">
+          <img [src]="user.avatar">
+          <p>{{ user.first_name }} {{ user.last_name}}</p>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
